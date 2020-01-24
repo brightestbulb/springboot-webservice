@@ -24,7 +24,7 @@ public class PostsApiController {
     }
 
     @GetMapping("/api/v1/posts/{bno}")
-    public PostsResponseDto findById(@PathVariable Long id){
-        return postsService.findById(id);
+    public PostsResponseDto findById(@PathVariable Long bno){
+        return postsService.findById(bno);
     }
 }
