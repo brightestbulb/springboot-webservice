@@ -5,6 +5,14 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+                {{#userName}}  <!-- if(userName 값이 있다면) -->
+                    Logged in as: <span id="user">{{userName}}</span>
+                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>  <!-- Spring Security logout 기본 지원 -->
+                {{/userName}}
+                {{^userName}}  <!-- else -->
+                    <a href="/oauth2/authorization/google" class="btn btn-success active" role="button"/>Google Login</a>
+                    <!-- Spring Security에서 기본 제공 로그인 URL -->
+                {{/userName}}
             </div>
         </div>
 
