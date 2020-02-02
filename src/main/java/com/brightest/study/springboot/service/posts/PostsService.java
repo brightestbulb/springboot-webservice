@@ -20,7 +20,7 @@ public class PostsService {
 
     @Transactional
     public Long save(PostsSaveRequestDto requestDto){
-        return postsRepository.save(requestDto.toEntity()).getBno();
+        return postsRepository.save(requestDto.toEntity()).getId();
     }
 
     @Transactional
@@ -34,9 +34,9 @@ public class PostsService {
     }
 
     @Transactional
-    public PostsResponseDto findById(Long bno){
-        Posts entity = postsRepository.findById(bno)
-                .orElseThrow(()-> new IllegalArgumentException("해당 사용자가 없습니다. id="+bno));
+    public PostsResponseDto findById(Long id){
+        Posts entity = postsRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("해당 사용자가 없습니다. id="+id));
 
         return new PostsResponseDto(entity);
     }
@@ -49,9 +49,9 @@ public class PostsService {
     }
 
     @Transactional
-    public void delete(Long bno){
-        Posts posts = postsRepository.findById(bno)
-            .orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id="+bno));
+    public void delete(Long id){
+        Posts posts = postsRepository.findById(id)
+            .orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
         postsRepository.delete(posts);
     }
 

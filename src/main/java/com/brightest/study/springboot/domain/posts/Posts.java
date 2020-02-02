@@ -13,7 +13,7 @@ public class Posts extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk생성 규칙, auto_increment
-    private Long bno;
+    private Long id;
 
     @Column(length = 500, nullable = false)
     private String title;
